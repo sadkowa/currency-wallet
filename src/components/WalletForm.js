@@ -26,8 +26,13 @@ const WalletForm = ()=> {
         if (Object.keys(newErrors).length === 0) {
             const purchaseWithId = { ...purchase, id: uuid() }
             dispatch(purchaseAdd(purchaseWithId))
-        }
 
+            clearFormFields();
+        }
+    }
+
+    const clearFormFields = () => {
+        setPurchase(initFormState)
     }
 
     const handleFieldChange = e => {

@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import WalletForm from "./WalletForm";
 import Table from "./Table";
+import ColorPicker from "./ColorPicker";
 import { StyledSection, Wrapper } from "./styledComponents/CurrencyWallet.styled";
 
 const CurrencyWallet = () => {
@@ -13,6 +14,7 @@ const CurrencyWallet = () => {
                 <WalletForm />
                 <Table />
             </Wrapper>
+            <ColorPicker/>
             <Footer />
         </StyledSection>
     )

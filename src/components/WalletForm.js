@@ -23,6 +23,13 @@ const WalletForm = ()=> {
         });
     }
 
+    const handleBlur = field => {
+        const { name } = field
+        const currentErrorMessage = fieldValidate(field, purchase)
+
+        setErrors({ ...errors, [name]: [currentErrorMessage] })
+    }
+
     const errorRender = error => {
         return <StyledError>{error}</StyledError>
     }

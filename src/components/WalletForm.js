@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { StyledForm, SubmitInput, StyledInput, StyledLabel } from "./styledComponents/WalletForm.styled";
+import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel } from "./styledComponents/WalletForm.styled";
 
 import { useSelector } from "react-redux";
 
-import { initFormState, formFields } from "../helpers/formData";
+import { initFormState, formFields, selectHeading } from "../helpers/formData";
 
 const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
     const { pickedColor } = useSelector(state => state.localStorage)
+
+    const currencies = ['PLN', "EUR", 'CHF']
 
 
     const handleFieldChange = e => {
@@ -19,22 +21,52 @@ const WalletForm = ()=> {
         });
     }
 
+    const optionsRender = () => {
+        return currencies.map((item, index) => {
+            return (
+                <option key={index} value={item}>
+                    {item}
+                </option>
+            )
+        })
+    }
+
     const fieldsRender = () => {
 
         return formFields.map(field => {
             const { id, type, name, label, required, min = '0' } = field
 
-            return (<StyledLabel key={id}>{label}
-                <StyledInput
-                    value={purchase[name]}
-                    onChange={handleFieldChange}
-                    name={name}
-                    type={type}
-                    required={required}
-                    color={pickedColor}
-                />
-            </StyledLabel>)
-
+            if (type === 'select') {
+                return (
+                    <StyledLabel key={id}>{label}
+                        <StyledSelect
+                            value={purchase['select']}
+                            onChange={handleFieldChange}
+                            name={name}
+                            type={type}
+                            required={required}
+                            color={pickedColor} >
+                            <option value='' >
+                                {selectHeading}
+                            </option>
+                            {optionsRender()}
+                        </StyledSelect>
+                    </StyledLabel>
+                )
+            } else return (
+                <StyledLabel key={id}>{label}
+                    <StyledInput
+                        value={purchase[name]}
+                        onChange={handleFieldChange}
+                        color={pickedColor}
+                        name={name}
+                        type={type}
+                        required={required}
+                        min={min}
+                    // max={maxDate(type)}
+                    />
+                </StyledLabel>
+            )
         })
     }
 

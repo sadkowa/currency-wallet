@@ -75,6 +75,33 @@ const StyledInput = styled.input`
     }
 `
 
+const StyledSelect = styled.select`
+    width: 100%;
+    padding: ${({ theme }) => theme.paddings.xxsmall};
+    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border-radius: ${({ theme }) => theme.borderRadius.small};
+    font-size: ${({ theme }) => theme.fontSizes.small};
+    color: ${({ theme }) => theme.colorsText.dark};
+    
+    &:focus {
+        outline: none;
+        background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
+    }
+
+    @media ${({ theme }) => theme.media.tablet} {
+        width: 60%;
+        max-width: 400px;
+        margin-left: 10px;
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+    }
+
+    @media ${({ theme }) => theme.media.desktop} {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+`
+
 const SubmitInput = styled.input`
     width: 100%;
     height: 23px;
@@ -103,5 +130,6 @@ export {
     StyledForm,
     StyledLabel,
     StyledInput,
+    StyledSelect,
     SubmitInput
 }

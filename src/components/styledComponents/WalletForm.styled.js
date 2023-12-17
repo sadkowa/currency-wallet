@@ -123,7 +123,27 @@ const SubmitInput = styled.input`
         height: 27px;
         font-size: ${({ theme }) => theme.fontSizes.medium};
     }
+`
 
+const StyledError = styled.p`
+    font-size: 1rem;
+    color: red;
+
+    @media ${props => props.theme.media.tablet} {
+        position: absolute;
+        top: -6px;
+        right: 10px;
+        font-size: 1.1rem;
+    }
+    
+    @media ${props => props.theme.media.desktop} {
+        width: 100%;
+        top: 95%;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
+        font-size: 1.3rem;
+    }
 `
 
 export {
@@ -131,5 +151,6 @@ export {
     StyledLabel,
     StyledInput,
     StyledSelect,
-    SubmitInput
+    SubmitInput,
+    StyledError
 }

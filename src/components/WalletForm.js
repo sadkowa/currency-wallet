@@ -9,6 +9,16 @@ const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
     const { pickedColor } = useSelector(state => state.localStorage)
 
+
+    const handleFieldChange = e => {
+        const { value, type, name } = e.target
+
+        setPurchase({
+            ...purchase,
+            [name]: value,
+        });
+    }
+
     const fieldsRender = () => {
 
         return formFields.map(field => {
@@ -17,6 +27,11 @@ const WalletForm = ()=> {
             return (<StyledLabel key={id}>{label}
                 <StyledInput
                     value={purchase[name]}
+                    onChange={handleFieldChange}
+                    name={name}
+                    type={type}
+                    required={required}
+                    color={pickedColor}
                 />
             </StyledLabel>)
 

@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import { StyledRow, StyledCell, StyledButton } from "./styledComponents/TableRow.styled";
 import { useDispatch } from "react-redux";
+import { getRatesData } from "../modules/exchangeRates";
 
 
 const TableRow = ({ item, isPopupActive, setIsPopupActive, setIdToDelete }) => {
+    const dispatch = useDispatch()
 
     const { select, amount, date, id } = item
+
+    useEffect(() => {
+        dispatch(getRatesData('latest'))
+    }, [])
 
     const handleClick = id => {
         // setIsPopupActive(!isPopupActive)

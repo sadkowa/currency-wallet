@@ -1,10 +1,11 @@
 class ExchangeRatesApi {
-    
+
     url = `https://openexchangerates.org/api/`
 
     getData(endpoint) {
-        console.log(process.env.REACT_APP_API_KEY)
-        return fetch(`${this.url}${endpoint}.json?app_id=d1625d57d6de48b6be8461f339bbc23c`)
+        // console.log(process.env.REACT_APP_API_KEY)
+        console.log(process.env.NODE_ENV)
+        return fetch(`${this.url}${endpoint}.json?app_id=${process.env.REACT_APP_API_KEY}`)
             .then(this.handleErrors)
             .then(resp => {
                 return resp.json()

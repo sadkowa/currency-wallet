@@ -6,3 +6,17 @@ export const setActiveColor = color => {
         payload: { color }
     }
 }
+
+export const purchaseAdd = purchase => {
+    return {
+        type: types.PURCHASE_ADD,
+        payload: { purchase }
+    }
+}
+
+export const deletePurchase = id => {
+    return {
+        type: types.PURCHASE_DELETE,
+        payload: { id }
+    }
+}

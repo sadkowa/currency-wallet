@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { v4 as uuid } from 'uuid';
 import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, StyledError } from "./styledComponents/WalletForm.styled";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { purchaseAdd } from "../modules/localStorage";
 
 import { initFormState, formFields, selectHeading, fieldValidate } from "../helpers/formData";
 
@@ -9,10 +11,20 @@ const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
     const [errors, setErrors] = useState({})
 
+    const dispatch = useDispatch()
     const { pickedColor } = useSelector(state => state.localStorage)
+
 
     const currencies = ['PLN', "EUR", 'CHF']
 
+    const submitHandler = e => {
+        e.preventDefault()
+
+        const purchaseWithId = { ...purchase, id: uuid() }
+
+        dispatch(purchaseAdd(purchaseWithId))
+
+    }
 
     const handleFieldChange = e => {
         const { value, type, name } = e.target
@@ -88,7 +100,7 @@ const WalletForm = ()=> {
     }
 
     return (
-        <StyledForm color={pickedColor}>
+        <StyledForm color={pickedColor} noValidate onSubmit={submitHandler}>
             {fieldsRender()}
             <StyledLabel>
                 <SubmitInput color={pickedColor} type="submit" value='Submit' />

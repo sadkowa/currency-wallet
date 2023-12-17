@@ -1,6 +1,6 @@
 import { types } from "."
 
-const initState = { pickedColor: 'blue', purchasesList: [] }
+const initState = { pickedColor: 'blue', purchasesList: []}
 
 const reducer = (state = initState, action) => {
 
@@ -10,7 +10,6 @@ const reducer = (state = initState, action) => {
                 ...state,
                 pickedColor: action.payload.color
             }
-
         case types.PURCHASE_ADD:
             return {
                 ...state,

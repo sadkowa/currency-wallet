@@ -23,6 +23,27 @@ const StyledForm = styled.form`
 `
 
 
+
+const SubmitInput = styled.input`
+    width: 100%;
+    height: 23px;
+    padding: ${({ theme }) => theme.paddings.xxsmall};
+    border: none;
+    border-radius: ${({ theme }) => theme.borderRadius.small};
+    color: ${({ theme }) => theme.colorsText.light};
+    font-size: ${({ theme }) => theme.fontSizes.small};
+    border: blue;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    @media ${({ theme }) => theme.media.tablet} {
+        height: 27px;
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+    }
+
+`
+
 export {
-    StyledForm
+    StyledForm,
+    SubmitInput
 }

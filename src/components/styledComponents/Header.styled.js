@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     align-items: center;
     height: 80px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-    background-color: blue;
+    background-color: ${({ theme, color }) => theme.colorsBG.dark[color]};
 
     @media ${({ theme }) => theme.media.tablet} {
         height: 100px;

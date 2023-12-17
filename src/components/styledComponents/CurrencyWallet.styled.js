@@ -6,5 +6,10 @@ const StyledSection = styled.section`
     flex-direction: column;
     min-height: 100vh;
 `
+const Wrapper = styled.div`
+    flex-grow: 1;
+    width: 100%;
+    margin: 0 auto;
+`
 
-export { StyledSection }
+export { StyledSection, Wrapper }

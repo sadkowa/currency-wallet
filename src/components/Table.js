@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { tableHeadings, noDataMessage } from "../helpers/tableData";
 
+import TableRow from "./TableRow";
 import {
     StyledTableSection,
     StyledHeading,

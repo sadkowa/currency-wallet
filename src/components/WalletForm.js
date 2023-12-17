@@ -55,6 +55,13 @@ const WalletForm = ()=> {
         return <StyledError>{error}</StyledError>
     }
 
+    const maxDate = type => {
+        if (type === 'date') {
+            const max = new Date().toISOString().split('T')[0]
+            return max
+        }
+    }
+
     const optionsRender = () => {
         return currencies.map((item, index) => {
             return (
@@ -64,7 +71,6 @@ const WalletForm = ()=> {
             )
         })
     }
-
     const fieldsRender = () => {
 
         return formFields.map(field => {
@@ -101,7 +107,7 @@ const WalletForm = ()=> {
                         type={type}
                         required={required}
                         min={min}
-                    // max={maxDate(type)}
+                        max={maxDate(type)}
                     />
                 </StyledLabel>
             )

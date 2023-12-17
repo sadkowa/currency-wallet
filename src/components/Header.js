@@ -1,5 +1,5 @@
 import React from "react";
-
+import { StyledHeader, StyledMainHeading } from "./styledComponents/Header.styled";
 
 const Header = () => {
 

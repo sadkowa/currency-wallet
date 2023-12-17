@@ -41,18 +41,22 @@ const StyledLabel = styled.label`
         font-size: ${({ theme }) => theme.fontSizes.large};
     }
 `
-
 const SubmitInput = styled.input`
     width: 100%;
     height: 23px;
     padding: ${({ theme }) => theme.paddings.xxsmall};
+    background-color: ${({ theme, color }) => theme.colorsBG.dark[color]};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadius.small};
     color: ${({ theme }) => theme.colorsText.light};
     font-size: ${({ theme }) => theme.fontSizes.small};
-    border: blue;
+    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
     cursor: pointer;
     transition: 0.3s ease;
+
+    &:hover {
+        background-color: ${({ theme, color }) => theme.colorsBG.darkHover[color]}
+    }
 
     @media ${({ theme }) => theme.media.tablet} {
         height: 27px;

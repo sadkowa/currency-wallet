@@ -41,6 +41,40 @@ const StyledLabel = styled.label`
         font-size: ${({ theme }) => theme.fontSizes.large};
     }
 `
+
+const StyledInput = styled.input`
+    width: 100%;
+    height: 23px;
+    padding: ${({ theme }) => theme.paddings.xxsmall};
+    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border-radius: ${({ theme }) => theme.borderRadius.small};
+    font-size: ${({ theme }) => theme.fontSizes.small};
+    font-family: 'Roboto', sans-serif; 
+    color: ${({ theme }) => theme.colorsText.dark};
+
+    &:focus {
+        outline: none;
+        background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
+    }
+    &::placeholder {
+        color: #ccc6ce
+    };
+
+    @media ${({ theme }) => theme.media.tablet} {
+        width: 60%;
+        height: 27px;
+        max-width: 400px;
+        margin-left: 10px;
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+    }
+
+    @media ${({ theme }) => theme.media.desktop} {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+`
+
 const SubmitInput = styled.input`
     width: 100%;
     height: 23px;
@@ -68,5 +102,6 @@ const SubmitInput = styled.input`
 export {
     StyledForm,
     StyledLabel,
+    StyledInput,
     SubmitInput
 }

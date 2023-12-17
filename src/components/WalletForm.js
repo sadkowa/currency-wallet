@@ -3,7 +3,7 @@ import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, Styled
 
 import { useSelector } from "react-redux";
 
-import { initFormState, formFields, selectHeading } from "../helpers/formData";
+import { initFormState, formFields, selectHeading, fieldValidate } from "../helpers/formData";
 
 const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
@@ -56,6 +56,7 @@ const WalletForm = ()=> {
                         <StyledSelect
                             value={purchase['select']}
                             onChange={handleFieldChange}
+                            onBlur={() => handleBlur(field)}
                             name={name}
                             type={type}
                             required={required}
@@ -73,6 +74,7 @@ const WalletForm = ()=> {
                     <StyledInput
                         value={purchase[name]}
                         onChange={handleFieldChange}
+                        onBlur={() => handleBlur(field)}
                         color={pickedColor}
                         name={name}
                         type={type}

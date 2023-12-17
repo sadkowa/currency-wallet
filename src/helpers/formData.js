@@ -16,5 +16,27 @@ const formFields = [
 
 const selectHeading = 'Select a currency'
 
+const fieldValidate = (field, purchase) => {
+    let error
+    const { name, pattern, required } = field
 
-export { initFormState, formFields, selectHeading }
+    const value = purchase[name]
+
+    if (required) {
+        if (value.length === 0) {
+            error = `This field is required`
+        } else {
+            if (pattern) {
+                const test = pattern.test(value)
+                if (!test) {
+                    error = `Correct the entered data`
+                }
+            }
+        }
+    }
+    
+    return error
+}
+
+
+export { initFormState, formFields, selectHeading, fieldValidate }

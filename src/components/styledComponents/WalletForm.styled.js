@@ -22,7 +22,25 @@ const StyledForm = styled.form`
     }
 `
 
+const StyledLabel = styled.label`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: ${({ theme }) => theme.paddings.xsmall};
 
+    @media ${({ theme }) => theme.media.tablet} {
+        flex-direction: row;
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+        justify-content: end;
+    }
+
+    @media ${({ theme }) => theme.media.desktop} {
+        flex-direction: column;
+        font-size: ${({ theme }) => theme.fontSizes.large};
+    }
+`
 
 const SubmitInput = styled.input`
     width: 100%;
@@ -45,5 +63,6 @@ const SubmitInput = styled.input`
 
 export {
     StyledForm,
+    StyledLabel,
     SubmitInput
 }

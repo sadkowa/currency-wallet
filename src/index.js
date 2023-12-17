@@ -7,10 +7,14 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'styled-components';
 import themeSettings from './Theme/theme';
 
+import { ResetStyle, GlobalStyle } from './components/global'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={themeSettings}>
+      <ResetStyle />
+      <GlobalStyle />
       <App />
     </ThemeProvider>
   </React.StrictMode>

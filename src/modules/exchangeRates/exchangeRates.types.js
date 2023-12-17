@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 const RATESDATA_GET = 'getRatesData'
 const LATESTRATESDATA_SET = 'setLatestRates'
 const HISTORICALRATESDATA_SET = 'setHistoricalRates'

@@ -16,6 +16,21 @@ const formFields = [
 
 const selectHeading = 'Select a currency'
 
+
+const formValidate = (purchase) => {
+    const errors = {}
+
+    formFields.forEach(field => {
+        const newErrorMessage = fieldValidate(field, purchase)
+
+        if (typeof newErrorMessage !== 'undefined') {
+            errors[field.name] = []
+            errors[field.name].push(fieldValidate(field, purchase))
+        }
+    })
+    return errors
+}
+
 const fieldValidate = (field, purchase) => {
     let error
     const { name, pattern, required } = field
@@ -38,5 +53,4 @@ const fieldValidate = (field, purchase) => {
     return error
 }
 
-
-export { initFormState, formFields, selectHeading, fieldValidate }
+export { initFormState, formFields, selectHeading, fieldValidate, formValidate }

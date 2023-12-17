@@ -5,7 +5,7 @@ import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, Styled
 import { useSelector, useDispatch } from "react-redux";
 import { purchaseAdd } from "../modules/localStorage";
 
-import { initFormState, formFields, selectHeading, fieldValidate } from "../helpers/formData";
+import { initFormState, formFields, selectHeading, fieldValidate, formValidate } from "../helpers/formData";
 
 const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
@@ -20,9 +20,13 @@ const WalletForm = ()=> {
     const submitHandler = e => {
         e.preventDefault()
 
-        const purchaseWithId = { ...purchase, id: uuid() }
+        const newErrors = formValidate(purchase);
+        setErrors(newErrors)
 
-        dispatch(purchaseAdd(purchaseWithId))
+        if (Object.keys(newErrors).length === 0) {
+            const purchaseWithId = { ...purchase, id: uuid() }
+            dispatch(purchaseAdd(purchaseWithId))
+        }
 
     }
 

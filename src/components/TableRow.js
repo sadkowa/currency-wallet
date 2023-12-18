@@ -46,7 +46,7 @@ const TableRow = ({ item, isPopupActive, setIsPopupActive, setIdToDelete }) => {
             <StyledCell >{historicalRate}</StyledCell>
             <StyledCell >{currentRate}</StyledCell>
             <StyledCell >{currentAmount}</StyledCell>
-            <StyledCell >{divideResult}''</StyledCell>
+            <StyledCell >{divideResult} / {divideResultPercentages}%</StyledCell>
             <StyledCell >
                 <StyledButton onClick={() => handleClick(id)}>+</StyledButton>
             </StyledCell>

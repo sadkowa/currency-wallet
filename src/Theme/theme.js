@@ -40,7 +40,7 @@ const themeSettings = {
     fontSizes: {
         xsmall: '0.8rem',
         small: '1.0rem',
-        medium: '1.3rem',
+        medium: '1.2rem',
         large: '1.5rem',
         xlarge: '2.0rem',
         xxlarge: '2.5rem',

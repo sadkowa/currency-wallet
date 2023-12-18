@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import {thunk} from 'redux-thunk'
 import reducers from "./reducers";
 
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadFromLocalStorage, saveToLocalStorage } from "./localStorage";
 
-const store = createStore(reducers, loadFromLocalStorage(), composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducers, loadFromLocalStorage(), compose(applyMiddleware(thunk)));
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 

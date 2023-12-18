@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/currency-wallet-new/static/css/main.e6c13ad2.css",
-    "main.js": "/currency-wallet-new/static/js/main.07c166bd.js",
+    "main.js": "/currency-wallet-new/static/js/main.037eb1de.js",
     "static/js/787.b985a8cd.chunk.js": "/currency-wallet-new/static/js/787.b985a8cd.chunk.js",
-    "static/media/redux.cjs": "/currency-wallet-new/static/media/redux.f6cd7db3b857b93d3bca.cjs",
     "index.html": "/currency-wallet-new/index.html",
     "main.e6c13ad2.css.map": "/currency-wallet-new/static/css/main.e6c13ad2.css.map",
-    "main.07c166bd.js.map": "/currency-wallet-new/static/js/main.07c166bd.js.map",
+    "main.037eb1de.js.map": "/currency-wallet-new/static/js/main.037eb1de.js.map",
     "787.b985a8cd.chunk.js.map": "/currency-wallet-new/static/js/787.b985a8cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.07c166bd.js"
+    "static/js/main.037eb1de.js"
   ]
 }

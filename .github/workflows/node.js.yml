@@ -34,7 +34,7 @@ jobs:
 
     - name: Build
       run: |
-        npm build
+        npm run-script build
       env:
         REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY}}
         

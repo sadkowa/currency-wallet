@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRatesData } from "../modules/exchangeRates";
 
 
-const TableRow = ({ item, isPopupActive, setIsPopupActive, setIdToDelete }) => {
+const TableRow = ({ item, isPopupActive, setIsPopupActive, deleteSummaryItem }) => {
     const dispatch = useDispatch()
 
     const { latestRates } = useSelector(state => state.ratesApi)
@@ -35,7 +35,7 @@ const TableRow = ({ item, isPopupActive, setIsPopupActive, setIdToDelete }) => {
 
     const handleClick = id => {
         // setIsPopupActive(!isPopupActive)
-        // setIdToDelete(id)
+        deleteSummaryItem(id)
     }
 
     return (

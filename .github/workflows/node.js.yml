@@ -42,4 +42,4 @@ jobs:
         FOLDER: build # The folder the action should deploy.
         CLEAN: true # Automatically remove deleted files from the deploy branch
       env:
-        token: ${{ secrets.REACT_APP_API_KEY}}
+        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY}}

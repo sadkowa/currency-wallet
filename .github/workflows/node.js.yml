@@ -31,7 +31,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
       
     - run: npm install
-    - run: npm run build
+
+    - name: Build
+      run: |
+        npm build
+      env:
+        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY}}
+        
+    # - run: npm run build
     # - run: npm run test
        
     - name: Deploy 
@@ -40,6 +47,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: build # The folder the action should deploy.
-        CLEAN: true # Automatically remove deleted files from the deploy branch
-      env:
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY}}
+        CLEAN: true # Automatically remove deleted files from the deploy branch        

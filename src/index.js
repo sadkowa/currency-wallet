@@ -19,8 +19,6 @@ root.render(
     <ThemeProvider theme={themeSettings}>
       <ResetStyle />
       <GlobalStyle />
-        <div>{process.env.REACT_APP_API_KEY}</div>
-
       <App />
     </ThemeProvider>
     </Provider>

@@ -32,7 +32,7 @@ const WalletForm = ()=> {
                 rate: value,
             });
         }
-    }, [purchase])
+    }, [purchase, historicalRates])
 
     useEffect(() => {
         if (purchase['date'] === '') {

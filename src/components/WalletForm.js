@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuid } from 'uuid';
 import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, StyledError } from "./styledComponents/WalletForm.styled";
 
 import { useSelector, useDispatch } from "react-redux";
 import { purchaseAdd } from "../modules/localStorage";
+import { getRatesData } from "../modules/exchangeRates";
 
-import { initFormState, formFields, selectHeading, fieldValidate, formValidate } from "../helpers/formData";
+
+import { initFormState, initCurrencies, formFields, selectHeading, fieldValidate, formValidate } from "../helpers/formData";
 
 const WalletForm = ()=> {
     const [purchase, setPurchase] = useState(initFormState)
@@ -13,9 +15,11 @@ const WalletForm = ()=> {
 
     const dispatch = useDispatch()
     const { pickedColor } = useSelector(state => state.localStorage)
+    const { latestRates } = useSelector(state => state.ratesApi)
 
-
-    const currencies = ['PLN', "EUR", 'CHF']
+    useEffect(() => {
+        dispatch(getRatesData('latest'))
+    }, [])
 
     const submitHandler = e => {
         e.preventDefault()
@@ -63,6 +67,15 @@ const WalletForm = ()=> {
     }
 
     const optionsRender = () => {
+        let currencies
+        const loadedCurrencies = Object.keys(latestRates)
+
+        if (loadedCurrencies.length === 0) {
+            currencies = initCurrencies
+        } else {
+            currencies = loadedCurrencies
+        }
+
         return currencies.map((item, index) => {
             return (
                 <option key={index} value={item}>

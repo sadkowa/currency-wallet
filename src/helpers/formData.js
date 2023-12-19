@@ -7,6 +7,8 @@ const initFormState = {
     rate: '',
 }
 
+const initCurrencies = ['PLN', "EUR", 'CHF', 'USD']
+
 const formFields = [
     { id: uuid(), type: 'select', name: 'select', label: 'Currency', required: true},
     { id: uuid(), type: 'number', name: 'amount', label: 'Amount', min: '1.00', required: true },
@@ -53,4 +55,4 @@ const fieldValidate = (field, purchase) => {
     return error
 }
 
-export { initFormState, formFields, selectHeading, fieldValidate, formValidate }
+export { initFormState, initCurrencies, formFields, selectHeading, fieldValidate, formValidate }

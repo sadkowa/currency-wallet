@@ -6,8 +6,8 @@ const StyledColorPicker = styled.div`
     right: 10px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: ${({ theme }) => theme.paddings.xxsmall};
+    gap: 7px;
+    padding: ${({ theme }) => theme.paddings.small};
     border: 1px solid #5c6a77;
     border-radius: 5px;
     background-color: rgba(250,250,250, 0.2);
@@ -29,8 +29,8 @@ const StyledColorPicker = styled.div`
 
 const StyledColorDiv = styled.div`
     box-sizing: border-box;
-    height: 13px;
-    width: 13px;
+    height: 18px;
+    width: 18px;
     border-radius: 50%;
     background-color: ${({ theme, option }) => theme.colorsBG.dark[option]};
     cursor: pointer;

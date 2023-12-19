@@ -1,18 +1,18 @@
-# Kanban Tool
+# Currency Wallet
 
 [Click to find out how it works!](https://sadkowa.github.io/KanbanTool/)
 
-This task involved implementing a Kanban system based on the MVP (Minimum Viable Product) concept.
+### Overview
+Build an application that calculates potential profit or loss from owned currencies. This project allows users to manage their currency holdings and track financial gains or losses based on real-time exchange rates provided by API (https://openexchangerates.org/api/)
 
-Basic elements:
+### Features
 
-- A board with defined columns and task limits
-- Tasks with information such as:
-    - Task name
-    - Current column
-    - User (person responsible)
-- Ability to move tasks between columns
-- A form (with validation) that allows adding new tasks to the board
+Users can input the following details:
+- Type of owned currency
+- Quantity of currency
+- Purchase date
+- Purchase price (automatically filled using an API based on the selected date, which can be modified by the user).
+
 
 ---
 
@@ -20,17 +20,10 @@ Basic elements:
 
 In this project, I used:
 
-- LocalStorage - to save information about tasks:
-    - Moving a task to another column
-    - Deleting a task
-    - Adding a task
-- Hooks:
-    - useState
-    - useContext
-    - useStorage (Custom Hook - provides methods for storing and retrieving data from localStorage)
-- Context Api - passing data within the application
-
-When the task limit in a specific column is reached, a pop-up window with information about exceeding the limit appears.
+- LocalStorage - to save information about purchases and color theme
+- API - to get latest and historical currency rates and list of currencies 
+- Redux - to manage state (separate storage for API and localStorage)
+- Styled-components and Theme Provider for styling
 
 
 ---
@@ -39,31 +32,31 @@ When the task limit in a specific column is reached, a pop-up window with inform
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![REST API](https://img.shields.io/badge/REST%20API-4f736d?style=for-the-badge&logoColor=white)
+![REDUX](https://img.shields.io/badge/Redux-%23764ABC?style=for-the-badge&logo=redux)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
-![Babel](https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white)
-![BEM Methodology](https://img.shields.io/badge/BEM%20Methodology-29BDfD?style=for-the-badge&logo=BEM&logoColor=white)
-![NPM](https://img.shields.io/badge/NPM-CB3837?style=for-the-badge&logo=npm&logoColor=white)
-![Git](https://img.shields.io/badge/GIT-ADB188?style=for-the-badge&logo=git&logoColor=white)
-![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-0A1A2F?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)
+![Styled-components](https://img.shields.io/badge/styled_components-%23DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+
 
 ## Installation and configuration
 
-In the project, [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) have been used. If you have them installed, enter the following in the terminal:
+1. Clone the repository.
 
+    In the project, [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) have been  used. If you have them installed, enter the following in the terminal:
+
+2. Install dependencies using:
 ````
 npm i
 ````
 
-To open the application in developer mode, use the following command:
+3. To run the application in developer mode, use the following command:
 
 ````
 npm start
 ````
 
-
-The application is available at the following address: 
+    The application is available at the following address: 
 
 ````
 http://localhost:3000

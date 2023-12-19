@@ -4,7 +4,7 @@ import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, Styled
 
 import { useSelector, useDispatch } from "react-redux";
 import { purchaseAdd } from "../modules/localStorage";
-import { getRatesData } from "../modules/exchangeRates";
+import { getRatesData, clearHistoricalRatesData } from "../modules/exchangeRates";
 
 
 import { initFormState, initCurrencies, formFields, selectHeading, fieldValidate, formValidate } from "../helpers/formData";
@@ -15,11 +15,30 @@ const WalletForm = ()=> {
 
     const dispatch = useDispatch()
     const { pickedColor } = useSelector(state => state.localStorage)
-    const { latestRates } = useSelector(state => state.ratesApi)
+    const { latestRates, historicalRates } = useSelector(state => state.ratesApi)
 
     useEffect(() => {
         dispatch(getRatesData('latest'))
-    }, [])
+    }, [dispatch])
+
+    useEffect(() => {
+        if (purchase['rate'] === '' && purchase['date'] !== '') {
+            const value = getHistoricalRate()
+
+            if (isNaN(value)) return
+
+            setPurchase({
+                ...purchase,
+                rate: value,
+            });
+        }
+    }, [purchase])
+
+    useEffect(() => {
+        if (purchase['date'] === '') {
+            dispatch(clearHistoricalRatesData())
+        }
+    }, [purchase, dispatch])
 
     const submitHandler = e => {
         e.preventDefault()
@@ -42,6 +61,9 @@ const WalletForm = ()=> {
     const handleFieldChange = e => {
         const { value, type, name } = e.target
 
+        if (type === 'date') {
+            dispatch(getRatesData(`historical/${value}`))
+        }
         setPurchase({
             ...purchase,
             [name]: value,
@@ -59,11 +81,17 @@ const WalletForm = ()=> {
         return <StyledError>{error}</StyledError>
     }
 
-    const maxDate = type => {
-        if (type === 'date') {
-            const max = new Date().toISOString().split('T')[0]
-            return max
-        }
+    const maxDate = () => {
+        const max = new Date().toISOString().split('T')[0]
+        return max
+
+    }
+
+    function getHistoricalRate() {
+        const pln = historicalRates['PLN']
+        const plnRate = pln / historicalRates[purchase['select']]
+
+        return plnRate.toFixed(2)
     }
 
     const optionsRender = () => {
@@ -120,7 +148,7 @@ const WalletForm = ()=> {
                         type={type}
                         required={required}
                         min={min}
-                        max={maxDate(type)}
+                        max = {type === 'date' ? maxDate(): null}
                     />
                 </StyledLabel>
             )

@@ -11,7 +11,7 @@ const StyledRow = styled.tr`
 `
 
 const StyledCell = styled.td`
-        padding: ${({ theme }) => theme.paddings.xxsmall};
+        padding:${({ theme }) => theme.paddings.xsmall} ${({ theme }) => theme.paddings.xxsmall};
         font-size: ${({ theme }) => theme.fontSizes.xsmall};
 
     @media ${({ theme }) => theme.media.tablet} {

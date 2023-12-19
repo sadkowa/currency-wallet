@@ -29,6 +29,7 @@ const StyledLabel = styled.label`
     align-items: center;
     width: 100%;
     padding: ${({ theme }) => theme.paddings.xsmall};
+    font-size: ${({ theme }) => theme.fontSizes.small};
 
     @media ${({ theme }) => theme.media.tablet} {
         flex-direction: row;

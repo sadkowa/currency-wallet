@@ -24,6 +24,7 @@ const themeSettings = {
         darkText: '#595d60',
     },
     paddings: {
+        xxxsmall: '2px',
         xxsmall: '4px',
         xsmall: '7px',
         small: '10px',
@@ -38,8 +39,8 @@ const themeSettings = {
         large: '15px',
     },
     fontSizes: {
-        xsmall: '0.8rem',
-        small: '1.0rem',
+        xsmall: '1rem',
+        small: '1.1rem',
         medium: '1.2rem',
         large: '1.5rem',
         xlarge: '2.0rem',

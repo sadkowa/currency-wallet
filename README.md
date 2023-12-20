@@ -1,6 +1,6 @@
 # Currency Wallet
 
-[Click to find out how it works!](https://sadkowa.github.io/KanbanTool/)
+[Click to find out how it works!](https://sadkowa.github.io/currency-wallet/)
 
 ### Overview
 Build an application that calculates potential profit or loss from owned currencies. This project allows users to manage their currency holdings and track financial gains or losses based on real-time exchange rates provided by API (https://openexchangerates.org/api/)

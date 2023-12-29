@@ -24,7 +24,13 @@ In this project, I used:
 - API - to get latest and historical currency rates and list of currencies 
 - Redux - to manage state (separate storage for API and localStorage)
 - Styled-components and Theme Provider for styling
+- Pagination - when list of purchases is greater than 4, the next page in table is created.
 
+<div style="display: flex; flex-wrap:wrap; width: 100%; gap: 5px">
+    <img style="width: 49%; height: auto" src="./src/assets/Capture - form.JPG">
+    <img style="width: 49%; height: auto" src="./src/assets/Capture - colorPicker.JPG">
+    <img style="width: 99%; height: auto"src="./src/assets/Capture - table.JPG">
+</div>
 
 ---
 

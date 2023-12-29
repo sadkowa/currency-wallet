@@ -13,7 +13,7 @@ const reducer = (state = initState, action) => {
         case types.PURCHASE_ADD:
             return {
                 ...state,
-                purchasesList: [...state.purchasesList, action.payload.purchase]
+                purchasesList: [action.payload.purchase, ...state.purchasesList]
             }
         case types.PURCHASE_DELETE:
             const newList = state.purchasesList.filter(item => item.id !== action.payload.id)

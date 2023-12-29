@@ -1,32 +1,35 @@
 import styled from "styled-components";
 
 const StyledTableSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
     margin: 50px 0;
-    min-height: 250px;
+    min-height: 350px;
     background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
 `
 
 const StyledHeading = styled.h2`
-    padding: ${({ theme }) => theme.paddings.medium};
+    padding: ${({ theme }) => theme.paddings.large};
     color: ${({ theme }) => theme.colorsText.darkText};
     text-align: center;
 
     @media ${({ theme }) => theme.media.tablet} {
-        padding: ${({ theme }) => theme.paddings.large};
         font-size: ${({ theme }) => theme.fontSizes.xlarge};
     }
 `
 
 const StyledMessage = styled.p`
+    flex-grow: 1;
+    width: 60%;
+    margin: 0 auto;
     padding: ${({ theme }) => theme.paddings.medium};
     font-size: ${({ theme }) => theme.fontSizes.medium};
     color: ${({ theme }) => theme.colorsText.darkText};
     text-align: center;
 
     @media ${({ theme }) => theme.media.tablet} {
-        width: 60%;
-        margin: 0 auto;
         font-size: ${({ theme }) => theme.fontSizes.large};
     }
 `
@@ -34,17 +37,17 @@ const StyledMessage = styled.p`
 const StyledTable = styled.table`
     width: 95%;
     margin: 0 auto;
-    padding-bottom: ${({ theme }) => theme.paddings.large};
+    padding-bottom: ${({ theme }) => theme.paddings.small};
     text-align: center;
 
     @media ${({ theme }) => theme.media.tablet} {
         width: 80%;
-        padding-bottom: ${({ theme }) => theme.paddings.xlarge};
+        /* padding-bottom: ${({ theme }) => theme.paddings.xlarge}; */
     }
 
     @media ${({ theme }) => theme.media.desktop} {
         max-width: 1000px;
-        padding-bottom: ${({ theme }) => theme.paddings.xxlarge};
+        /* padding-bottom: ${({ theme }) => theme.paddings.xxlarge}; */
     }
 `
 

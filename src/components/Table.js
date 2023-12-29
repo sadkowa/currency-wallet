@@ -5,7 +5,8 @@ import { deletePurchase } from "../modules/localStorage";
 
 import { tableHeadings, noDataMessage } from "../helpers/tableData";
 
-import TableRow from "./TableRow";
+// import TableRow from "./TableRow";
+import Pagination from "./Pagination";
 import ButtonsSection from "./ButtonsSection";
 import Popup from "./Popup"
 import {
@@ -58,21 +59,29 @@ const Table = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {purchasesList.map(item => <TableRow
+                            {/* {purchasesList.map(item => <TableRow
                                 key={item.id}
                                 item={item}
                                 setIsPopupActive={setIsPopupActive}
                                 isPopupActive={isPopupActive}
                                 setIdToDelete={setIdToDelete}
-                            />)}
+                            />)} */}
+                            <Pagination
+                                page={page}
+                                paginationLimit={paginationLimit}
+                                displayData={purchasesList}
+                                setIsPopupActive={setIsPopupActive}
+                                isPopupActive={isPopupActive}
+                                setIdToDelete={setIdToDelete}
+                            />
                         </tbody>
                     </StyledTable>
                 )}
-                <ButtonsSection
+                {purchasesList.length !== 0 && <ButtonsSection
                     page={page}
                     pages={pages}
                     handleClick={handleClick}
-                />
+                />}
             </StyledTableSection>
 
 

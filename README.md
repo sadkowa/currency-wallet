@@ -27,8 +27,8 @@ In this project, I used:
 - Pagination - when list of purchases is greater than 4, the next page in table is created.
 
 <div style="display: flex; flex-wrap:wrap; width: 100%; gap: 5px">
-    <img style="width: auto; height: 300px" src="./src/assets/Capture - form.JPG">
-    <img style="width: auto; height: 300px" src="./src/assets/Capture - colorPicker.JPG">
+    <img style="width: auto; height: 250px" src="./src/assets/Capture - form.JPG">
+    <img style="width: auto; height: 250px" src="./src/assets/Capture - colorPicker.JPG">
     <img style="width: 99%; height: auto"src="./src/assets/Capture - table.JPG">
 </div>
 

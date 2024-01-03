@@ -26,7 +26,7 @@ In this project, I used:
 - Styled-components and Theme Provider for styling
 - Pagination - when list of purchases is greater than 4, the next page in table is created.
 
-<img style="width: 100%;" src="./src/assets/tempsnip.png">
+<img style="width: 100%;" src="./src/assets/tempsnip2.png">
 
 ---
 

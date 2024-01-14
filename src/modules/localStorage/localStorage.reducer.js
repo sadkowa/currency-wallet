@@ -1,6 +1,7 @@
 import { types } from "."
+import { initData } from "../../helpers/tableData"
 
-const initState = { pickedColor: 'blue', purchasesList: []}
+const initState = { pickedColor: 'blue', purchasesList: initData}
 
 const reducer = (state = initState, action) => {
 

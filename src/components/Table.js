@@ -5,7 +5,6 @@ import { deletePurchase } from "../modules/localStorage";
 
 import { tableHeadings, noDataMessage } from "../helpers/tableData";
 
-// import TableRow from "./TableRow";
 import Pagination from "./Pagination";
 import ButtonsSection from "./ButtonsSection";
 import Popup from "./Popup"
@@ -26,6 +25,8 @@ const Table = () => {
     const dispatch = useDispatch()
     const paginationLimit = 4
 
+
+    console.log(purchasesList)
     const pages = Math.ceil(purchasesList.length / paginationLimit)
 
     const deleteSummaryItem = id => {
@@ -59,13 +60,6 @@ const Table = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {purchasesList.map(item => <TableRow
-                                key={item.id}
-                                item={item}
-                                setIsPopupActive={setIsPopupActive}
-                                isPopupActive={isPopupActive}
-                                setIdToDelete={setIdToDelete}
-                            />)} */}
                             <Pagination
                                 page={page}
                                 paginationLimit={paginationLimit}

@@ -1,7 +1,7 @@
 import { types } from "."
 import ExchangeRatesApi from "./exchangeRatesApi"
 
-export const getRatesData = (endpoint) => (dispatch) => {
+export const getRatesData = endpoint => dispatch => {
     const api = new ExchangeRatesApi()
 
     api.getData(endpoint)

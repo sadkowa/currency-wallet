@@ -25,8 +25,6 @@ const Table = () => {
     const dispatch = useDispatch()
     const paginationLimit = 4
 
-
-    console.log(purchasesList)
     const pages = Math.ceil(purchasesList.length / paginationLimit)
 
     const deleteSummaryItem = id => {
@@ -50,7 +48,7 @@ const Table = () => {
 
     return (
         <>
-            <StyledTableSection color={pickedColor}>
+            <StyledTableSection $color={pickedColor}>
                 <StyledHeading>Your currencies summary</StyledHeading>
                 {purchasesList.length === 0 ? <StyledMessage>{noDataMessage}</StyledMessage> : (
                     <StyledTable>

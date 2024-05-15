@@ -16,7 +16,7 @@ const ColorPicker = () => {
             return <StyledColorDiv
                 key={id}
                 option={color}
-                pickedcolor={pickedColor}
+                $pickedcolor={pickedColor}
                 onClick={() => dispatch(setActiveColor(color))} />
         })
     }

@@ -35,7 +35,7 @@ const StyledColorDiv = styled.div`
     background-color: ${({ theme, option }) => theme.colorsBG.dark[option]};
     cursor: pointer;
 
-    ${({ option, pickedcolor }) => option === pickedcolor && css`
+    ${({ option, $pickedcolor }) => option === $pickedcolor && css`
             transform: scale(1.1);
             outline: 1px solid lightgrey`};
 

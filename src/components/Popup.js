@@ -21,11 +21,11 @@ const Popup = props => {
 
     return (
         <StyledBox onClick={closePopUp} >
-            <StyledPopup color={pickedColor} >
+            <StyledPopup $color={pickedColor} >
                 <StyledMessage>{popUpMessage}</StyledMessage>
                 <StyledButtonsContainer>
-                    <StyledOptionButton color={pickedColor} onClick={handleConfirmButton}>Yes</StyledOptionButton>
-                    <StyledOptionButton color={pickedColor} onClick={closePopUp}>No</StyledOptionButton>
+                    <StyledOptionButton $color={pickedColor} onClick={handleConfirmButton}>Yes</StyledOptionButton>
+                    <StyledOptionButton $color={pickedColor} onClick={closePopUp}>No</StyledOptionButton>
                 </StyledButtonsContainer>
                 <StyledButton onClick={closePopUp}>+</StyledButton>
             </StyledPopup>

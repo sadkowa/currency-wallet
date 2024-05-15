@@ -70,7 +70,7 @@ const StyledButtonsContainer = styled.div`
 
 const StyledOptionButton = styled.button`
     padding: ${({ theme }) => theme.paddings.xxsmall};
-    background-color: ${({ theme, color }) => theme.colorsBG.dark[color]};
+    background-color: ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadius.small};
     color: ${({ theme }) => theme.colorsText.light};
@@ -79,7 +79,7 @@ const StyledOptionButton = styled.button`
     transition: 0.3s ease;
 
     &:hover {
-        background-color: ${({ theme, color }) => theme.colorsBG.darkHover[color]}
+        background-color: ${({ theme, $color }) => theme.colorsBG.darkHover[$color]}
     }
 
     @media ${({ theme }) => theme.media.tablet} {

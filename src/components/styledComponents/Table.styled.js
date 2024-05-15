@@ -7,7 +7,7 @@ const StyledTableSection = styled.section`
     width: 100%;
     margin: 50px 0;
     min-height: 350px;
-    background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
+    background-color: ${({ theme, $color }) => theme.colorsBG.light[$color]};
 `
 
 const StyledHeading = styled.h2`

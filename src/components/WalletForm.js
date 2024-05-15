@@ -128,7 +128,7 @@ const WalletForm = ()=> {
                             name={name}
                             type={type}
                             required={required}
-                            color={pickedColor} >
+                            $color={pickedColor} >
                             <option value='' >
                                 {selectHeading}
                             </option>
@@ -143,7 +143,7 @@ const WalletForm = ()=> {
                         value={purchase[name]}
                         onChange={handleFieldChange}
                         onBlur={() => handleBlur(field)}
-                        color={pickedColor}
+                        $color={pickedColor}
                         name={name}
                         type={type}
                         required={required}
@@ -156,10 +156,10 @@ const WalletForm = ()=> {
     }
 
     return (
-        <StyledForm color={pickedColor} noValidate onSubmit={submitHandler}>
+        <StyledForm $color={pickedColor} noValidate onSubmit={submitHandler}>
             {fieldsRender()}
             <StyledLabel>
-                <SubmitInput color={pickedColor} type="submit" value='Submit' />
+                <SubmitInput $color={pickedColor} type="submit" value='Submit' />
             </StyledLabel>
         </StyledForm>
     )

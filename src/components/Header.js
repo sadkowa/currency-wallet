@@ -7,7 +7,7 @@ const Header = () => {
     const { pickedColor } = useSelector(state => state.localStorage)
 
     return (
-        <StyledHeader color={pickedColor}>
+        <StyledHeader $color={pickedColor}>
             <StyledMainHeading>Currency Wallet</StyledMainHeading>
         </StyledHeader>
     )

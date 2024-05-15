@@ -47,7 +47,7 @@ const StyledInput = styled.input`
     width: 100%;
     height: 23px;
     padding: ${({ theme }) => theme.paddings.xxsmall};
-    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border: 1px solid ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     border-radius: ${({ theme }) => theme.borderRadius.small};
     font-size: ${({ theme }) => theme.fontSizes.small};
     font-family: 'Roboto', sans-serif; 
@@ -55,7 +55,7 @@ const StyledInput = styled.input`
 
     &:focus {
         outline: none;
-        background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
+        background-color: ${({ theme, $color }) => theme.colorsBG.light[$color]};
     }
     &::placeholder {
         color: #ccc6ce
@@ -79,14 +79,14 @@ const StyledInput = styled.input`
 const StyledSelect = styled.select`
     width: 100%;
     padding: ${({ theme }) => theme.paddings.xxsmall};
-    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border: 1px solid ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     border-radius: ${({ theme }) => theme.borderRadius.small};
     font-size: ${({ theme }) => theme.fontSizes.small};
     color: ${({ theme }) => theme.colorsText.dark};
     
     &:focus {
         outline: none;
-        background-color: ${({ theme, color }) => theme.colorsBG.light[color]};
+        background-color: ${({ theme, $color }) => theme.colorsBG.light[$color]};
     }
 
     @media ${({ theme }) => theme.media.tablet} {
@@ -107,17 +107,17 @@ const SubmitInput = styled.input`
     width: 100%;
     height: 23px;
     padding: ${({ theme }) => theme.paddings.xxsmall};
-    background-color: ${({ theme, color }) => theme.colorsBG.dark[color]};
+    background-color: ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     border: none;
     border-radius: ${({ theme }) => theme.borderRadius.small};
     color: ${({ theme }) => theme.colorsText.light};
     font-size: ${({ theme }) => theme.fontSizes.small};
-    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border: 1px solid ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     cursor: pointer;
     transition: 0.3s ease;
 
     &:hover {
-        background-color: ${({ theme, color }) => theme.colorsBG.darkHover[color]}
+        background-color: ${({ theme, $color }) => theme.colorsBG.darkHover[$color]}
     }
 
     @media ${({ theme }) => theme.media.tablet} {

@@ -21,7 +21,7 @@ Users can input the following details:
 In this project, I used:
 
 - LocalStorage - to save information about purchases and color theme
-- API - to get latest and historical currency rates and list of currencies 
+- API - to get latest and historical currency rates 
 - Redux - to manage state (separate storage for API and localStorage)
 - Styled-components and Theme Provider for styling
 - Pagination - when list of purchases is greater than 4, the next page in table is created.

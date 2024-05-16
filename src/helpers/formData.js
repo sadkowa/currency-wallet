@@ -7,7 +7,7 @@ const initFormState = {
     rate: '',
 }
 
-const initCurrencies = ['PLN', "EUR", 'CHF', 'USD']
+const initCurrencies = ['PLN', "EUR", 'CHF', 'USD', 'JPY','GBP', 'AUD', 'CAD', 'CNH', 'SEK', 'NZD']
 
 const formFields = [
     { id: uuid(), type: 'select', name: 'select', label: 'Currency', required: true},
@@ -19,7 +19,7 @@ const formFields = [
 const selectHeading = 'Select a currency'
 
 
-const formValidate = (purchase) => {
+const formValidate = purchase => {
     const errors = {}
 
     formFields.forEach(field => {

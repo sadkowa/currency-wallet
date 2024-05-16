@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { v4 as uuid } from 'uuid';
 import { StyledForm, SubmitInput, StyledInput, StyledSelect, StyledLabel, StyledError } from "./styledComponents/WalletForm.styled";
 
@@ -15,24 +15,30 @@ const WalletForm = ()=> {
 
     const dispatch = useDispatch()
     const { pickedColor } = useSelector(state => state.localStorage)
-    const { latestRates, historicalRates } = useSelector(state => state.ratesApi)
+    const { historicalRates } = useSelector(state => state.ratesApi)
 
     useEffect(() => {
         dispatch(getRatesData('latest'))
     }, [dispatch])
 
+    const getHistoricalRate = useCallback(() => {
+        const pln = historicalRates['PLN']
+        const plnRate = pln / historicalRates[purchase['select']]
+
+        return plnRate.toFixed(2)
+    }, [historicalRates, purchase])
+
     useEffect(() => {
-        if (purchase['rate'] === '' && purchase['date'] !== '') {
+        if (purchase['rate'] === '' && purchase['date'] !== '' && purchase['select'] !== '') {
             const value = getHistoricalRate()
 
             if (isNaN(value)) return
 
-            setPurchase({
-                ...purchase,
-                rate: value,
-            });
+            setPurchase({...purchase,
+                rate: value,}
+            );
         }
-    }, [purchase, historicalRates])
+    }, [purchase, getHistoricalRate])
 
     useEffect(() => {
         if (purchase['date'] === '') {
@@ -59,16 +65,29 @@ const WalletForm = ()=> {
     }
 
     const handleFieldChange = e => {
-        const { value, type, name } = e.target
+        const { value, type, name } = e.target;
 
         if (type === 'date') {
+            dispatch(clearHistoricalRatesData());
             dispatch(getRatesData(`historical/${value}`))
+            setPurchase({
+                ...purchase,
+                [name]: value,
+                rate: '', 
+            })
+        } else if (name === 'select') {
+            setPurchase({
+                ...purchase,
+                [name]: value,
+                rate: '', 
+            });
+        } else {
+            setPurchase({
+                ...purchase,
+                [name]: value
+            });
         }
-        setPurchase({
-            ...purchase,
-            [name]: value,
-        });
-    }
+    };
 
     const handleBlur = field => {
         const { name } = field
@@ -82,29 +101,11 @@ const WalletForm = ()=> {
     }
 
     const maxDate = () => {
-        const max = new Date().toISOString().split('T')[0]
-        return max
-
-    }
-
-    function getHistoricalRate() {
-        const pln = historicalRates['PLN']
-        const plnRate = pln / historicalRates[purchase['select']]
-
-        return plnRate.toFixed(2)
+        return new Date().toISOString().split('T')[0] 
     }
 
     const optionsRender = () => {
-        let currencies
-        const loadedCurrencies = Object.keys(latestRates)
-
-        if (loadedCurrencies.length === 0) {
-            currencies = initCurrencies
-        } else {
-            currencies = loadedCurrencies
-        }
-
-        return currencies.map((item, index) => {
+        return initCurrencies.map((item, index) => {
             return (
                 <option key={index} value={item}>
                     {item}

@@ -6,6 +6,7 @@ const StyledTableSection = styled.section`
     gap: 20px;
     width: 100%;
     margin: 50px 0;
+    padding: 0 10px;
     min-height: 350px;
     background-color: ${({ theme, $color }) => theme.colorsBG.light[$color]};
 `
@@ -33,7 +34,10 @@ const StyledMessage = styled.p`
         font-size: ${({ theme }) => theme.fontSizes.large};
     }
 `
+const StyledDiv = styled.div`
+    overflow-x: auto;
 
+`
 const StyledTable = styled.table`
     width: 95%;
     margin: 0 auto;
@@ -42,12 +46,12 @@ const StyledTable = styled.table`
 
     @media ${({ theme }) => theme.media.tablet} {
         width: 80%;
-        /* padding-bottom: ${({ theme }) => theme.paddings.xlarge}; */
+        padding-bottom: ${({ theme }) => theme.paddings.xlarge};
     }
 
     @media ${({ theme }) => theme.media.desktop} {
         max-width: 1000px;
-        /* padding-bottom: ${({ theme }) => theme.paddings.xxlarge}; */
+        padding-bottom: ${({ theme }) => theme.paddings.xxlarge};
     }
 `
 
@@ -71,5 +75,6 @@ export {
     StyledHeading, 
     StyledMessage, 
     StyledTable, 
-    StyledMainCell
+    StyledMainCell,
+    StyledDiv
 }

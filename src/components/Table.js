@@ -13,7 +13,8 @@ import {
     StyledHeading,
     StyledMessage,
     StyledTable,
-    StyledMainCell
+    StyledMainCell,
+    StyledDiv
 } from './styledComponents/Table.styled'
 
 const Table = () => {
@@ -51,6 +52,7 @@ const Table = () => {
             <StyledTableSection $color={pickedColor}>
                 <StyledHeading>Your currencies summary</StyledHeading>
                 {purchasesList.length === 0 ? <StyledMessage>{noDataMessage}</StyledMessage> : (
+                    <StyledDiv>
                     <StyledTable>
                         <thead>
                             <tr>
@@ -68,6 +70,7 @@ const Table = () => {
                             />
                         </tbody>
                     </StyledTable>
+                    </StyledDiv>
                 )}
                 {purchasesList.length !== 0 && <ButtonsSection
                     page={page}

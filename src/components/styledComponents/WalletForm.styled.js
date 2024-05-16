@@ -7,7 +7,7 @@ const StyledForm = styled.form`
     max-width: 300px;
     margin: 30px auto 0;
     padding: ${({ theme }) => theme.paddings.medium};
-    border: 1px solid ${({ theme, color }) => theme.colorsBG.dark[color]};
+    border: 1px solid ${({ theme, $color }) => theme.colorsBG.dark[$color]};
     border-radius: 8px;
 
     @media ${({ theme }) => theme.media.tablet} {
